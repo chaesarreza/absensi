@@ -1,0 +1,469 @@
+/* ==========================================================================
+   TEMA "ELEGANT MARINE" - Dibuat untuk Aplikasi Absensi Madrasah
+   ========================================================================== */
+
+/* Import Font dari Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;700&display=swap');
+
+/* Variabel Warna Utama */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #1abc9c;
+    --accent-dark: #16a085;
+    --secondary-accent: #f39c12;
+    --light-bg: #f8f9fa;
+    --text-dark: #34495e;
+    --text-light: #7f8c8d;
+    --border-color: #eaecf0;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* --- PERUBAHAN DI SINI --- */
+    overflow: hidden; /* Mencegah body untuk scroll */
+}
+
+/* Navbar */
+.navbar-custom {
+    background: linear-gradient(90deg, var(--primary-color) 0%, #34495e 100%);
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    padding: 0.75rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    flex-shrink: 0; /* Mencegah navbar mengecil */
+}
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #fff !important;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.btn-outline-light {
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+}
+.btn-outline-light:hover {
+    color: var(--primary-color);
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/* Layout Utama - Main Content Wrapper */
+.main-content-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-color);
+    color: #1a778e;
+    padding: 1rem 0.5rem;
+    box-shadow: 2px 0 15px var(--shadow-medium);
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+.sidebar-brand {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5rem 1rem 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.8rem 1.25rem;
+    margin: 0.2rem 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+    color: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+}
+.sidebar .nav-link i {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+}
+
+/* Content Area */
+.content-area {
+    flex-grow: 1;
+    padding: 2.5rem;
+    background-color: var(--light-bg);
+    overflow-y: auto; /* --- PERUBAHAN DI SINI --- */
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 7px 25px var(--shadow-light);
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--shadow-medium);
+}
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    padding: 1.25rem;
+}
+
+/* Dashboard Cards */
+.dashboard-card .card-body { padding: 2rem; }
+.dashboard-card .text-xs {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 500;
+}
+.dashboard-card .h5 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+.dashboard-card .col-auto i { font-size: 3rem; opacity: 0.5; }
+
+.border-start-primary { border-left: 4px solid var(--accent-color); }
+.border-start-success { border-left: 4px solid #28a745; }
+.border-start-info { border-left: 4px solid #0dcaf0; }
+
+.border-start-primary .col-auto i { color: var(--accent-color); }
+.border-start-success .col-auto i { color: #28a745; }
+.border-start-info .col-auto i { color: #0dcaf0; }
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+.btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 7px 16px var(--shadow-medium);
+}
+.btn-success {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+    color: #fff;
+}
+.btn-success:hover { color: #fff; }
+.btn-primary {
+    background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+}
+.btn-primary:hover { color: #fff; }
+.btn-warning {
+    background: linear-gradient(90deg, var(--secondary-accent) 0%, #e67e22 100%);
+    color: #fff;
+}
+.btn-warning:hover { color: #fff; }
+.btn-danger {
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+    color: #fff;
+}
+.btn-danger:hover { color: #fff; }
+
+/* Tables */
+.table { background-color: #fff; }
+.table>:not(caption)>*>* {
+    padding: 0.5rem 1rem;
+    vertical-align: middle;
+}
+.table thead th {
+    background-color: var(--light-bg);
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+    vertical-align: middle;
+    /* --- TAMBAHKAN 3 BARIS INI --- */
+    position: sticky;
+    top: -1px; /* Menggunakan -1px adalah trik agar border atas terlihat rapi */
+    z-index: 10;
+}
+.table-hover>tbody>tr:hover {
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: var(--bs-table-hover-color);
+    background-color: #fcfcfc;
+    transform: scale(1.005);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+/* Footer (Sticky di bawah, bukan fixed) */
+.footer-custom {
+    flex-shrink: 0; /* Mencegah footer mengecil */
+    background: #2c3e50;
+    color: var(--light-bg);
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        position: fixed;
+        left: -260px;
+        height: 100vh;
+        z-index: 1040;
+    }
+    .sidebar.show {
+        width: 260px;
+        left: 0;
+        box-shadow: 5px 0 20px rgba(0,0,0,0.2);
+    }
+    .content-area { padding: 1.5rem; }
+    .navbar-brand { font-size: 1.3rem; }
+}
+@media (max-width: 768px) {
+    .content-area { padding: 1rem; }
+    .navbar-custom { padding: 0.75rem 1.5rem; }
+}
+
+/* ==========================================================================
+   Branding (Logo & Nama Sekolah) - BARU
+   ========================================================================== */
+
+/* Wrapper untuk logo dan teks di Navbar */
+.brand-logo {
+    height: 45px; /* Sesuaikan ukuran logo di navbar */
+    width: auto;
+    margin-right: 15px;
+}
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+.brand-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem; /* Ukuran font nama sekolah */
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+.brand-subtitle {
+    font-size: 0.8rem; /* Ukuran font subtitle */
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Logo di Sidebar */
+.sidebar-logo {
+    height: 60px; /* Ukuran logo di sidebar */
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   TEMA "GURU WORKSPACE" vFINAL - UNTUK PANEL GURU
+   ========================================================================== */
+
+/* --- Variabel untuk Mode Gelap (Default) --- */
+.guru-panel {
+    --bg-main: #2d3748;      /* Latar abu-biru gelap */
+    --bg-panel: #1a202c;     /* Panel lebih gelap */
+    --text-primary: #ffffff; /* Teks Putih Bersih */
+    --text-secondary: #a0aec0;/* Teks abu-abu */
+    --border-color: #4a5568;  /* Warna border */
+    --accent-color: #4299e1;  /* Biru cerah sebagai aksen */
+    --hover-bg: #2d3748;
+}
+
+/* --- Variabel untuk Mode Terang --- */
+.guru-panel.light-mode {
+    --bg-main: #f0f2f5;       /* Latar abu-abu sangat terang */
+    --bg-panel: #ffffff;      /* Panel putih bersih */
+    --text-primary: #000000;  /* Teks Hitam Pekat */
+    --text-secondary: #718096; /* Teks abu-abu lebih terang */
+    --border-color: #e2e8f0;   /* Warna border terang */
+    --accent-color: #3182ce;   /* Biru yang lebih kuat */
+    --hover-bg: #edf2f7;
+}
+
+/* Base Styles */
+.guru-panel {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Layout Utama */
+.guru-workspace {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+    flex-grow: 1;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+.schedule-list, .main-content {
+    background-color: var(--bg-panel);
+    border-radius: 12px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+.main-content { padding: 2rem; }
+
+/* Navbar */
+.guru-panel .navbar-guru {
+    background-color: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+.guru-panel .navbar-brand { color: var(--text-primary) !important; font-weight: 600; }
+.guru-panel .btn-outline-primary { border-color: var(--border-color); color: var(--text-secondary); }
+.guru-panel .btn-outline-primary:hover { background-color: var(--hover-bg); color: var(--text-primary); }
+
+/* Tombol Pengalih Tema */
+.theme-toggle { cursor: pointer; color: var(--text-secondary); font-size: 1.25rem; transition: all 0.3s ease; }
+.theme-toggle:hover { color: var(--accent-color); }
+
+/* Menu Jadwal di Kiri (Akordeon) */
+.schedule-list h3 {
+    font-size: 1.1rem; font-weight: 600; padding: 0.5rem 0.5rem 1rem 0.5rem;
+    border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; color: var(--text-primary);
+}
+.guru-panel .schedule-accordion .accordion-item { background-color: transparent; border: none; border-bottom: 1px solid var(--border-color); }
+.guru-panel .schedule-accordion .accordion-button { background-color: transparent; color: var(--text-primary); font-weight: 600; font-size: 1.1rem; padding: 1rem 1.25rem; box-shadow: none; }
+.guru-panel .schedule-accordion .accordion-button:not(.collapsed) { background-color: var(--hover-bg); color: var(--accent-color); }
+.guru-panel .schedule-accordion .accordion-body { padding: 0; }
+.schedule-link {
+    display: block; padding: 0.8rem 1rem 0.8rem 2.5rem; text-decoration: none;
+    color: var(--text-secondary); transition: all 0.2s ease;
+}
+.schedule-link:hover { background-color: var(--hover-bg); color: var(--text-primary); }
+.schedule-link.active { background-color: var(--accent-color); color: #fff; font-weight: 500; box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3); }
+.schedule-link .subject-name { display: block; font-size: 0.9rem; }
+
+/* Konten di Kanan */
+.main-content .nav-tabs { border-bottom-color: var(--border-color); }
+.main-content .nav-tabs .nav-link { color: var(--text-secondary); border-color: transparent !important; background: none; }
+.main-content .nav-tabs .nav-link.active { color: var(--accent-color); background-color: transparent; border-bottom: 3px solid var(--accent-color) !important; }
+.main-content .tab-content { padding-top: 1.5rem; }
+.main-content .card { background-color: var(--bg-main); border: 1px solid var(--border-color); color: var(--text-primary); }
+.main-content .card-header, .main-content .card-footer { background-color: transparent; border-color: var(--border-color) !important; color: inherit; }
+.main-content .list-group-item { background-color: transparent; border-color: var(--border-color); color: var(--text-primary); }
+.main-content .text-muted, .main-content .welcome-subtitle { color: var(--text-secondary) !important; }
+
+/* === PERBAIKAN UTAMA UNTUK FORM & TABEL === */
+.main-content .form-control, .main-content .form-select {
+    background-color: var(--bg-main); border-color: var(--border-color); color: var(--text-primary);
+}
+.main-content .form-control:focus, .main-content .form-select:focus {
+    background-color: var(--bg-main); color: var(--text-primary);
+    box-shadow: 0 0 0 0.25rem rgba(49,130,206,.25); border-color: var(--accent-color);
+}
+.guru-panel.dark-mode .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a0aec0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.main-content .table {
+    --bs-table-color: var(--text-primary);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--border-color);
+    --bs-table-striped-bg: var(--hover-bg);
+    --bs-table-hover-bg: var(--hover-bg);
+}
+.main-content .table thead th {
+    background-color: var(--bg-main);
+}
+/* === AKHIR PERBAIKAN === */
+
+.main-content .btn-outline-success { border-color: #28a745; color: #28a745; }
+.main-content .btn-outline-warning { border-color: #ffc107; color: #ffc107; }
+.main-content .btn-outline-info { border-color: #0dcaf0; color: #0dcaf0; }
+.main-content .btn-outline-danger { border-color: #dc3545; color: #dc3545; }
+.guru-panel:not(.light-mode) .main-content .btn-outline-success:hover, .guru-panel:not(.light-mode) .main-content .btn-outline-warning:hover, .guru-panel:not(.light-mode) .main-content .btn-outline-info:hover, .guru-panel:not(.light-mode) .main-content .btn-outline-danger:hover {
+    color: #fff;
+}
+
+/* Styling untuk Kotak Motivasi di Dashboard Guru */
+.guru-panel .quote-of-the-day {
+    background-color: var(--hover-bg);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.guru-panel .quote-of-the-day p {
+    margin: 0;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Menggelapkan tabel di tab Input Nilai */
+.guru-panel .main-content .table {
+    background-color: transparent; /* Menghilangkan latar belakang putih */
+    color: var(--text-primary) !important;
+}
+
+.guru-panel .main-content .table thead th {
+    background-color: var(--bg-main); /* Header tabel sedikit lebih terang */
+    border-color: var(--border-color);
+}
+
+.guru-panel .main-content .table tbody tr {
+    border-color: var(--border-color);
+}
+
+/* Aturan untuk tabel belang (striped) di mode gelap */
+.guru-panel .main-content .table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: var(--hover-bg);
+    color: var(--text-primary);
+}
+
+/* Aturan untuk hover di mode gelap */
+.guru-panel .main-content .table-hover>tbody>tr:hover>* {
+    --bs-table-accent-bg: var(--hover-bg);
+    color: var(--text-primary);
+}
